@@ -5,10 +5,17 @@ package ru.skillbranch.devintensive.utils
  */
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?, String?>{
-        val parts : List<String>? = fullName?.split(" ")
+        var fullNameModifier = fullName?.trim()
+        if ((fullNameModifier == null) or (fullNameModifier == "")) {
+            return null to null
+        }
+        while (fullNameModifier!!.contains("  ")){
+            fullNameModifier = fullNameModifier!!.replace("  "," ")
+        }
+        val parts : List<String>? = fullNameModifier?.split(" ")
 
-        val firstName =parts?.getOrNull(0)
-        val lastName =parts?.getOrNull(1)
+        var firstName =parts?.getOrNull(0)
+        var lastName =parts?.getOrNull(1)
 
         return firstName to lastName
     }

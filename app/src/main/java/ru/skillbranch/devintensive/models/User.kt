@@ -32,8 +32,8 @@ data class User (
     )
 
     init {
-        println("It`s Alive!!! \n" +
-                "${if(lastName==="Doe") "His name is $firstName $lastName" else "And his name is $firstName $lastName!!!" }\n")
+        //println(//"It`s Alive!!! \n" +
+          //      "${if(lastName==="Doe") "His name is $firstName $lastName" else "And his name is $firstName $lastName!!!" }\n")
     }
 
 
@@ -43,7 +43,7 @@ data class User (
             lastId++
 
             val (firstName, lastName) = Utils.parseFullName(fullName)
-
+            println(fullName + " -> " + "\"$firstName\" \"$lastName\"")
             return User(id = "$lastId", firstName = firstName, lastName = lastName)
         }
     }
